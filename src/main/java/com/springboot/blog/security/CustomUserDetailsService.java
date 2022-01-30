@@ -15,11 +15,11 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class customUserDetailsService implements UserDetailsService {
+public class CustomUserDetailsService implements UserDetailsService {
 
     private UserRepository userRepository;
 
-    public customUserDetailsService(UserRepository userRepository) {
+    public CustomUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
