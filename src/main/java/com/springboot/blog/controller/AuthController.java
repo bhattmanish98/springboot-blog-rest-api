@@ -8,6 +8,8 @@ import com.springboot.blog.payload.SignUpDto;
 import com.springboot.blog.repository.RoleRepository;
 import com.springboot.blog.repository.UserRepository;
 import com.springboot.blog.security.JwtTokenProvider;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
 
+@Api(value = "Auth controller exposes sign-in and sign-up REST APIs") // Description of AuthController in Swagger
 @RestController
 @RequestMapping("/api/v1/auth")
 public class AuthController {
@@ -51,6 +54,7 @@ public class AuthController {
 //        return new ResponseEntity<>("User signed-in successfully", HttpStatus.OK);
 //    }
 
+    @ApiOperation(value = "REST API to login or sign-in user to blob application")
     @PostMapping("/signin")
     public ResponseEntity<JwtAuthResponse> authenticateUser(@RequestBody LoginDto loginDto) {
         Authentication authentication = authenticationManager.authenticate(
@@ -63,6 +67,7 @@ public class AuthController {
         return ResponseEntity.ok(new JwtAuthResponse(token));
     }
 
+    @ApiOperation(value = "REST API to Register or sign-up the user in the blob application")
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@RequestBody SignUpDto signUpDto) {
         // add check for username exists in a DB
