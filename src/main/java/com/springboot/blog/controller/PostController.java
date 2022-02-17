@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import static com.springboot.blog.utils.AppConstants.*;
 
 @RestController
-@RequestMapping("/api/posts")
+@RequestMapping("/api/v1/posts")
 public class PostController {
     private PostService postService;
 

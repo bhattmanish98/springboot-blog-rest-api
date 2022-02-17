@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/posts/{postId}/comments")
+@RequestMapping("/api/v1/posts/{postId}/comments")
 public class CommentController {
     private CommentService commentService;
 
